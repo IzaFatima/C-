@@ -27,8 +27,49 @@ void reverseArray(int arr[], int size)
         end--;
     }
 }
+
+//Find Single Value(Unique) Using Nested Loop
+int uniqueValue(vector<int> &arr)
+{
+    int n = arr.size();
+    for (int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (i != j && arr[i] == arr[j])
+            {
+                count++;
+                break;
+            }
+        }
+        if (count == 0)
+        {
+            return (i, arr[i]);
+        }
+    }
+    return -1;
+}
+//Find Single Value(Unique) Using Bitwise XOR operator
+int SingleNumber(vector<int> &vec)
+{
+
+    int ans = 0;
+    for (int val : vec)
+    {
+        ans = ans ^ val;
+    }
+    return ans;
+}
+
 int main()
 {
+  vector<int> vec1 = {1, 2, 3, 2, 3, 4, 4};
+    vector<int> vec2 = {4, 1, 2, 1, 2};
+    cout << uniqueValue(vec1) << endl;
+    cout << SingleNumber(vec2) << endl;
+
+    
     // p1:
     int arr[] = {4, 2, 7, 8, 1, 2};
     int size = 6;
