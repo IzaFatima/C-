@@ -54,14 +54,7 @@ Sum kadaneCircular(int arr[])
         // All numbers are negative
         return {maxSum, minSum, totalSum};
     }
-    if (totalSum != minSum)
-    {
-        circularMax = max(maxSum, totalSum - minSum);
-    }
-    else
-    {
-        circularMax = maxSum;
-    }
+  
     return {circularMax, minSum, totalSum, currMax};
 }
 
