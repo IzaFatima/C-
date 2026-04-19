@@ -1,5 +1,42 @@
 #include <iostream>
 using namespace std;
+//p5: BruteForce approach O(n^3) to get maxsum of sub array
+void bruteforce(int arr[])
+{
+    int n = 5;
+    int maxSum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i; j < n; j++)
+        {
+            int sum = 0;
+            for (int k = i; k <= j; k++)
+            {
+                cout << arr[k];
+                sum += arr[k];
+            }
+            cout << " , ";
+            maxSum = max(maxSum, sum);
+        }
+        cout << endl;
+    }
+    cout << "Sum= " << maxSum << endl;
+}
+//p6: BruteForce approach O(n^2)
+int bBruteforce(int arr[])
+{
+    int n = 5, maxSum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int currSum = 0;
+        for (int j = i; j < n; j++)
+        {
+            currSum += arr[j];
+            maxSum = max(maxSum, currSum);
+        }
+    }
+    return maxSum;
+}
 //p1: Standard Kadane's Algorithm
 int kadane(int arr[])
 {
@@ -108,5 +145,9 @@ int arr1={1,2,3,4};
   //p4:
     vector<int> vec = {-3, -1, -1};
     cout << maxProduct(vec) << endl;
+     //p5:
+    bruteforce(arr1);
+    //p6:
+    cout<<bBruteforce(arr1);
   return 0;
 }
